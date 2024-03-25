@@ -24,11 +24,21 @@ h w z = z + w
 j :: Int -> Bool
 j x = x <= 0
 
-
+-------------------------------------------
 -- Ejercicio 18 
 --Defin´ı las funciones que describimos a continuaci´on, luego implementalas en haskell . Por ejemplo: Enunciado: signo : Int → Int, que dado un entero retorna su signo, de la siguiente forma: retorna 1 si x es positivo, -1 si es negativo y 0 en cualquier otro caso.
 sgn :: Int -> Int
 sgn x | x>0 = 1
       | x<0 = -1
       | x==0 = 0 -- | otherwise = 0
-      
+--a
+entre0y9 ::Int -> Bool
+entre0y9 x = (x>=0) && (x<=9)
+
+-- b 
+rangoPrecio :: Int -> String
+rangoPrecio x | x<0 = "esto no puede ser"
+              | x<=2000 = "muy barato" 
+              | x>=5000 =  "muy caro"
+              | x>2000 && x<5000 = "hay que verlo bien"
+              
