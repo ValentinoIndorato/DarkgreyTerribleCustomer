@@ -124,8 +124,14 @@ multiplicaEnLista n (x:xs) = x * n : multiplicaEnLista n xs
 
 todosMenores10 :: [Int]-> [Bool]-- tiene que ser Bool  todosMenores10 :: [Int]-> Bool
 todosMenores10 (x:xs) = (x<10) : todosMenores10 xs
-todosMenores10bis :: [Int]-> Bool
-todosMenores10bis (x:xs) | (x<10) : todosMenores10bis xs = true
+--todosMenores10bis :: [Int]-> Bool
+--todosMenores10bis (x:xs) | (x<10) : todosMenores10bis xs = true
 
 --b hay0 [1,0,3] = True
+--hay0 :: [Int] -> Bool
+--hay0 (x:xs)= x==0 hay0 xs
+
 --c suma [1,2,3] = 6
+suma :: [Int]-> Int
+suma []=0
+suma (x:xs)= x + suma xs
