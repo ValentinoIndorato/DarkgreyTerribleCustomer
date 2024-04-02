@@ -191,3 +191,24 @@ ultimoInt (x:xs)
 ultimoBis:: [a] -> a
 --ultimoBis (x:xs) = xs !! (length (x:xs) - 1) Lo que marca esta bueno
 ultimoBis (x:xs) = (x:xs) !! (length (x:xs) - 1) --creo que con la lista sola es suficiente
+
+
+--f repetir 3 6 = [6,6,6]
+repetir :: Int -> Int -> [Int]
+repetir n k | n-1>= 0 = k :repetir (n-1) k
+ | otherwise = []
+--repetir n k | n>= 0 = k :repetir (n-1) k (esta fue la primer idea pero me devolvia [6,6,6,6] pq contaba el 3 y 1)
+
+--g  concatenar [[1,4],[],[2]] = [1,4,2] 
+-- ayuda de AI
+concatenar :: [[a]] -> [a] 
+concatenar [] = []
+concatenar ([]:xs)=concatenar xs
+concatenar ((y:ys):xs)  = y : concatenar (ys:xs)
+
+--PORQUE "XS" YA ES UNA LISTA DE LISTAS?
+
+--h rev [1,2,3] = [3,2,1]
+rev :: [a]-> [a]
+rev [] = []
+rev (x:xs) = rev xs ++ [x]
