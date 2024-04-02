@@ -50,6 +50,14 @@ rangoPrecio x
   | x >= 5000 = "muy caro"
   | x > 2000 && x < 5000 = "hay que verlo bien"
 
+
+
+
+--Practico 2 
+-- Ejercio 3 
+--Una función de filter es aquella que dada una lista devuelve otra lista cuyos elementos son los elementos de la primera que cumplan una determinada condición, en el mismo orden y con las mismas repeticiones (si las hubiere). Por ejemplo: soloPares :: [Int] -> [Int] devuelve aquellos elementos de la lista que son pares.
+
+-- a) soloPares [3,0,-2,12] = [0,-2, 12]
 esPar :: Int -> Int
 esPar x | (mod x 2 )== 0  = x
  | (mod x 2 )/= 0  = 0
@@ -69,6 +77,8 @@ esParBis x = mod x 2 --si es impar devuelve 1
 soloParesBis1 :: [Int] -> [Int]
 soloParesBis1 []=[]
 --soloParesBis1 (x : xs) = (((esParBis x) == 0)= x  ): soloParesBis1 (xs)
+
+-- b mayoresQue10 [3,0,-2, 12] = [12]
 mayorQue10 :: Int -> Bool
 mayorQue10 x = x > 10
 mayoresQue10 :: [Int] -> [Bool]
@@ -77,21 +87,45 @@ mayoresQue10 (x:xs) = (x>10) : (mayoresQue10 xs)
 --mayoresQue10 (x:xs) = (x>10==true = x) : (mayoresQue10 xs)
 --Line 77  Para que devuelva el valor de x
 --mayorA :: Int -> Int -> Int   mayorA x y | x>y = x  |otherwise 
+
+-- c  mayoresQue 2 [3,0,-2, 12] = [3,12]
+
 --mayorQue :: Int -> [Int] ->[Int]
 --mayorQue [] = []
 --mayorQue y (x:xs) = x > y : (mayorQue xs)
 --COMO DEBE SER mayorQue y (x:xs) = ((x > y)== true = x) : (mayorQue xs)
+
+
+-- Ejercio 4
+--Una función de map es aquella que dada una lista devuelve otra lista cuyos elementos son los que se obtienen de aplicar una función a cada elemento de la primera en el mismo orden y con las mismas repeticiones (si las hubiere). Por ejemplo: duplica :: [Int] -> [Int] devuelve cada elemento de la lista multiplicado por 2.
+
+--a sumar1 [3,0,-2] = [4,1,-1]
+
 sumar1 :: [Int] -> [Int]
 sumar1[]=[]-- comodin para que no me tire error de [1,2,3,4,5,6*** Exception: app/Main.hs:85:1-30: Non-exhaustive patterns in function sumar1
 sumar1 (x:xs) =x+1 : sumar1 xs --sin parentecis por redundancia 
+
+--b duplica [3,0,-2] = [6,0,-4]
+
 duplicaEnLista ::  [Int] -> [Int]
 duplicaEnLista []=[]
 duplicaEnLista (x:xs) = x * 2 : duplicaEnLista xs
+
+--c multiplica 3 [3,0,-2] = [9,0,-6]
 multiplicaEnLista :: Int -> [Int] -> [Int]
 multiplicaEnLista n []=[] --amuleto
 multiplicaEnLista n (x:xs) = x * n : multiplicaEnLista n xs
+
+
+-- Ejercicio 5
+-- Una función de fold es aquella que dada una lista devuelve un valor resultante de combinar los elementos de la lista. Por ejemplo: sum: [Int] -> Int devuelve la sumatoria de los elementos de la lista.
+
+-- a todosMenores10 [1,3,9] = True
 
 todosMenores10 :: [Int]-> [Bool]-- tiene que ser Bool  todosMenores10 :: [Int]-> Bool
 todosMenores10 (x:xs) = (x<10) : todosMenores10 xs
 todosMenores10bis :: [Int]-> Bool
 todosMenores10bis (x:xs) | (x<10) : todosMenores10bis xs = true
+
+--b hay0 [1,0,3] = True
+--c suma [1,2,3] = 6
