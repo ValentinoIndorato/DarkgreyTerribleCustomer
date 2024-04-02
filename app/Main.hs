@@ -153,3 +153,41 @@ repartir (x:xs) (y:ys) = (x,y) :repartir xs ys
 apellidos :: [(String, String, Int)] -> [String]
 apellidos []=[]
 apellidos ((x,y,z):xs) = y: apellidos xs
+
+--EJRECICIO 9 
+--(i) Definí funciones por recursión para cada una de las siguientes descripciones. (ii) Evaluá los ejemplos manualmente (iii) Identificá si las funciones son de algún tipo ya conocido (fillter, map, fold). (iv)Programálas en haskell y verificá los resultados obtenidos.
+
+
+--b  sumaPares [(1,2),(7,8),(11,0)] = 29
+
+sumaPares :: [(Int,Int)]-> Int
+sumaPares ((x,y):xs) = x + y + sumaPares xs
+sumaPares []=0
+
+--d quitar0s [2,0,3,4] = [2,3,4]
+quitar0s :: [Int]->[Int]
+quitar0s  []=[]
+quitar0s (x:xs) | x/= 0 =x: quitar0s xs
+ | x==0 = quitar0s xs
+ --entiendo que esto serian dos formas de tener funciones por partes ya que al definir quitar0s  []=[] seria una parte que no va a pasar si (x:xs) 
+--PREGUNTAR AL PROFE COMO HACERLA CON GUARDAS
+
+--e
+-- respuesta en pestaña AI de 9-e
+ultimo :: Eq a => [a] -> a
+ultimo (x:xs)
+   | xs == [] = x
+   | xs /= [] = ultimo xs
+-- ultimo :: [a] -> a
+-- ultimo (x:xs)
+--   |xs == [] = x
+--  |xs /= [] = ultimo xs
+  
+ultimoInt :: [Int] -> Int
+ultimoInt (x:xs)
+  |xs == [] = x
+  |xs /= [] = ultimoInt xs
+
+ultimoBis:: [a] -> a
+--ultimoBis (x:xs) = xs !! (length (x:xs) - 1) Lo que marca esta bueno
+ultimoBis (x:xs) = (x:xs) !! (length (x:xs) - 1) --creo que con la lista sola es suficiente
