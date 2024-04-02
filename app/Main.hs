@@ -135,3 +135,21 @@ todosMenores10 (x:xs) = (x<10) : todosMenores10 xs
 suma :: [Int]-> Int
 suma []=0
 suma (x:xs)= x + suma xs
+
+--Ejercicio 6 función de tipo zip
+--Ej: repartir ["Juan", "Maria"] ["1 de Copa", "3 de Oro", "7 de Espada", "2 de Basto"] = [("Juan","1 de Copa"), ("Maria","3 de Oro")]
+
+repartir :: [String] -> [String] -> [(String,String)] 
+repartir [] (y:ys) = []
+repartir (y:ys) [] = []
+repartir [] [] = []
+--repartir [] (y:ys) || (x:xs) [] = [] PQ no toma el or???
+repartir (x:xs) (y:ys) = (x,y) :repartir xs ys
+--COMO HAGO PARA QUE SEA FUNCION POR PARTES
+-- xs==[] || ys == [] = [("","")]
+
+--Ejercicio 7 función de tipo unzip
+--Ej: apellidos [("Juan","Dominguez",22), ("Maria","Gutierrez",19), ("Damian","Perez",43)] = ["Dominguez","Gutierrez","Perez"]
+apellidos :: [(String, String, Int)] -> [String]
+apellidos []=[]
+apellidos ((x,y,z):xs) = y: apellidos xs
