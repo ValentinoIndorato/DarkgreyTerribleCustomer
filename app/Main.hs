@@ -212,3 +212,31 @@ concatenar ((y:ys):xs)  = y : concatenar (ys:xs)
 rev :: [a]-> [a]
 rev [] = []
 rev (x:xs) = rev xs ++ [x]
+
+
+hacerA :: String -> String
+
+hacerA []=[]
+hacerA (x:xs) | '¡' == x ||'e' == x  ||'i' == x ||'o' == x  ||'u' == x = 'a':hacerA xs
+ |otherwise = x:hacerA xs
+
+ --ghci> hacerA "¡Pero, che!"
+--"\161Para, cha!"
+
+-- profe ejemplos
+apareaP :: [Int] -> [(Int, Int)]
+apareaP [x,y] = [(x,y)]
+apareaP (x:xs) = (x,head xs): apareaP xs
+apareaP (x:y:xs)= (x,y):apareaP (y:xs)
+
+-- mios
+aparea :: [Int] -> [(Int, Int)]
+aparea (x:y:ys) | ys == []= [(x,y)]
+ |ys/= []= (x,y): aparea (y:ys)
+
+empiezaConA :: [String]->[String]
+empiezaConA [] = []
+empiezaConA (xs:xss) |head xs == 'A' = xs: empiezaConA xss
+  | head xs /= 'A' = empiezaConA xss
+  |  xs == [] = empiezaConA xss
+ 
